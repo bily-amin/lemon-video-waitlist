@@ -8,6 +8,7 @@ import {
   CarouselPrevious 
 } from '@/components/ui/carousel';
 import { Slider } from '@/components/ui/slider';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useState } from 'react';
 
 const FeatureSection = () => {
@@ -77,17 +78,19 @@ const FeatureSection = () => {
               {features.map((feature, index) => (
                 <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3">
                   <div className="bg-fashion-black border border-fashion-white/20 rounded-xl p-6 md:p-8 h-full hover:shadow-[0_0_15px_rgba(243,242,38,0.3)] transition-all hover:-translate-y-1">
-                    <div className="relative mb-6 rounded-lg overflow-hidden aspect-[9/16] bg-black/20">
-                      <video 
-                        className="w-full h-full object-cover"
-                        src={feature.video}
-                        loop
-                        muted
-                        playsInline
-                        onMouseEnter={(e) => e.currentTarget.play()}
-                        onMouseLeave={(e) => e.currentTarget.pause()}
-                        onTimeUpdate={(e) => handleTimeUpdate(index, e)}
-                      />
+                    <div className="relative mb-6 rounded-lg overflow-hidden bg-black/20">
+                      <AspectRatio ratio={16/9} className="bg-black">
+                        <video 
+                          className="w-full h-full object-contain"
+                          src={feature.video}
+                          loop
+                          muted
+                          playsInline
+                          onMouseEnter={(e) => e.currentTarget.play()}
+                          onMouseLeave={(e) => e.currentTarget.pause()}
+                          onTimeUpdate={(e) => handleTimeUpdate(index, e)}
+                        />
+                      </AspectRatio>
                       <div className="absolute bottom-3 left-3 right-3">
                         <Slider 
                           value={[videoProgress[index] || 0]} 

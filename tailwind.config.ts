@@ -54,9 +54,9 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				lemon: {
-          DEFAULT: '#F3F226',
-          light: '#F8F687',
-          dark: '#DEDC00'
+          DEFAULT: '#FFF9A3',  // Softer yellow
+          light: '#FFFCD0',    // Lighter soft yellow
+          dark: '#FFEEA0'      // Darker soft yellow
         },
         fashion: {
           black: '#000000',

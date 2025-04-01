@@ -20,7 +20,7 @@ const HeroSection = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.mp4" type="video/mp4" />
+          <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -45,6 +45,35 @@ const HeroSection = () => {
               Join our waitlist for early access to the most innovative way to discover and shop fashion trends in seconds.
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* Floating video previews */}
+      <div className="absolute left-[5%] top-[20%] w-32 md:w-40 z-10 animate-float-slow opacity-90 hidden md:block">
+        <div className="rounded-lg overflow-hidden shadow-xl rotate-[-5deg]">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover"
+          >
+            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      
+      <div className="absolute right-[8%] top-[30%] w-28 md:w-36 z-10 animate-float-slow opacity-90 hidden md:block" style={{ animationDelay: "0.5s" }}>
+        <div className="rounded-lg overflow-hidden shadow-xl rotate-[5deg]">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover"
+          >
+            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
 

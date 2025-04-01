@@ -111,6 +111,14 @@ export default {
             transform: 'translateY(0)',
             opacity: '1'
           }
+        },
+        'float': {
+          '0%, 100%': {
+            transform: 'translateY(0)'
+          },
+          '50%': {
+            transform: 'translateY(-15px)'
+          }
         }
 			},
 			animation: {
@@ -118,7 +126,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
         'pulse-slow': 'pulse-slow 3s infinite ease-in-out',
         'bounce-subtle': 'bounce-subtle 3s infinite ease-in-out',
-        'slide-up': 'slide-up 0.5s ease-out forwards'
+        'slide-up': 'slide-up 0.5s ease-out forwards',
+        'float-slow': 'float 8s infinite ease-in-out'
 			}
 		}
 	},

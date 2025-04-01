@@ -76,4 +76,17 @@
   .stagger-3 {
     animation-delay: 0.3s;
   }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
 }

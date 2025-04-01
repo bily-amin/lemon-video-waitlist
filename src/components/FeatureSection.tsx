@@ -7,35 +7,50 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from '@/components/ui/carousel';
+import { Slider } from '@/components/ui/slider';
+import { useState } from 'react';
 
 const FeatureSection = () => {
+  const [videoProgress, setVideoProgress] = useState<Record<number, number>>({});
+
   const features = [
     {
       icon: <VideoIcon className="h-8 w-8" />,
       title: "Short Video Discovery",
-      description: "Find fashion you love through engaging short-form videos that showcase styles in real-world settings."
+      description: "Find fashion you love through engaging short-form videos that showcase styles in real-world settings.",
+      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
     },
     {
       icon: <TrendingUpIcon className="h-8 w-8" />,
       title: "Trending Styles",
-      description: "Stay ahead of fashion trends with our AI-powered algorithm that shows you what's popular right now."
+      description: "Stay ahead of fashion trends with our AI-powered algorithm that shows you what's popular right now.",
+      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
     },
     {
       icon: <ShoppingBagIcon className="h-8 w-8" />,
       title: "Seamless Shopping",
-      description: "See something you like? Buy it instantly with just one tap directly from the video."
+      description: "See something you like? Buy it instantly with just one tap directly from the video.",
+      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       icon: <MousePointer className="h-8 w-8" />,
       title: "Personalized Recommendations",
-      description: "Get fashion suggestions tailored to your style preferences and shopping history."
+      description: "Get fashion suggestions tailored to your style preferences and shopping history.",
+      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
     },
     {
       icon: <Sparkles className="h-8 w-8" />,
       title: "Creator Collaborations",
-      description: "Discover exclusive collections from your favorite fashion creators and influencers."
+      description: "Discover exclusive collections from your favorite fashion creators and influencers.",
+      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
     }
   ];
+
+  const handleTimeUpdate = (index: number, event: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = event.currentTarget;
+    const progress = (video.currentTime / video.duration) * 100;
+    setVideoProgress(prev => ({ ...prev, [index]: progress }));
+  };
 
   return (
     <section className="py-16 bg-fashion-black text-fashion-white">
@@ -62,6 +77,26 @@ const FeatureSection = () => {
               {features.map((feature, index) => (
                 <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3">
                   <div className="bg-fashion-black border border-fashion-white/20 rounded-xl p-6 md:p-8 h-full hover:shadow-[0_0_15px_rgba(243,242,38,0.3)] transition-all hover:-translate-y-1">
+                    <div className="relative mb-6 rounded-lg overflow-hidden aspect-[9/16] bg-black/20">
+                      <video 
+                        className="w-full h-full object-cover"
+                        src={feature.video}
+                        loop
+                        muted
+                        playsInline
+                        onMouseEnter={(e) => e.currentTarget.play()}
+                        onMouseLeave={(e) => e.currentTarget.pause()}
+                        onTimeUpdate={(e) => handleTimeUpdate(index, e)}
+                      />
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <Slider 
+                          value={[videoProgress[index] || 0]} 
+                          max={100}
+                          className="h-1"
+                          disabled
+                        />
+                      </div>
+                    </div>
                     <div className="bg-lemon p-3 rounded-lg inline-block mb-4 text-fashion-black">
                       {feature.icon}
                     </div>

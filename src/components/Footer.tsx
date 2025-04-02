@@ -1,5 +1,6 @@
 
 import { Instagram, Twitter, Facebook } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -25,10 +26,10 @@ const Footer = () => {
           </div>
           
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-8 text-sm text-fashion-white/70">
-            <a href="#" className="hover:text-red transition-colors">About Us</a>
-            <a href="#" className="hover:text-red transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-red transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-red transition-colors">Contact</a>
+            <Link to="/about" className="hover:text-red transition-colors">About Us</Link>
+            <Link to="/privacy" className="hover:text-red transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-red transition-colors">Terms of Service</Link>
+            <Link to="/contact" className="hover:text-red transition-colors">Contact</Link>
           </div>
           
           <div className="text-center text-sm text-fashion-white/50">

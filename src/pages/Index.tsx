@@ -11,7 +11,7 @@ const Index = () => {
       <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-2xl font-bold text-fashion-white">
-            Fashion<span className="text-peach">Video</span>
+            Fashion<span className="text-red">Video</span>
           </div>
         </div>
       </header>

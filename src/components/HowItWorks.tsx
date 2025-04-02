@@ -4,17 +4,17 @@ import { Camera, Eye, ThumbsUp, ArrowRight } from "lucide-react";
 const HowItWorks = () => {
   const steps = [
     {
-      icon: <Camera className="h-6 w-6" />,
+      icon: <Camera className="h-6 w-6 text-fashion-white" />,
       title: "Watch Short Videos",
       description: "Discover fashion through our curated short-form videos from creators and brands"
     },
     {
-      icon: <Eye className="h-6 w-6" />,
+      icon: <Eye className="h-6 w-6 text-fashion-white" />,
       title: "Find Your Style",
       description: "Our algorithm learns your preferences and shows you more of what you like"
     },
     {
-      icon: <ThumbsUp className="h-6 w-6" />,
+      icon: <ThumbsUp className="h-6 w-6 text-fashion-white" />,
       title: "Shop Instantly",
       description: "See something you love? Purchase directly from the video with just one tap"
     }

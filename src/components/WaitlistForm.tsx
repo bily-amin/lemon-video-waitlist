@@ -51,15 +51,15 @@ const WaitlistForm = () => {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 border-2 border-fashion-black/20 focus:border-lemon bg-white h-12 px-4"
+                  className="flex-1 border-2 border-fashion-black/20 focus:border-peach bg-white h-12 px-4"
                   disabled={isLoading || isSubmitted}
                 />
                 <Button
                   type="submit"
                   className={`h-12 px-6 font-medium transition-all ${
                     isSubmitted 
-                      ? 'bg-lemon-dark text-fashion-black hover:bg-lemon-dark' 
-                      : 'bg-lemon text-fashion-black hover:bg-lemon-dark'
+                      ? 'bg-peach-dark text-fashion-black hover:bg-peach-dark' 
+                      : 'bg-peach text-fashion-black hover:bg-peach-dark'
                   }`}
                   disabled={isLoading || isSubmitted}
                 >

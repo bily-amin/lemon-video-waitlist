@@ -53,10 +53,10 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				lemon: {
-          DEFAULT: '#FFF9A3',  // Softer yellow
-          light: '#FFFCD0',    // Lighter soft yellow
-          dark: '#FFEEA0'      // Darker soft yellow
+				peach: {
+          DEFAULT: '#FDE1D3',  // Soft peach
+          light: '#FFF0EA',    // Lighter peach
+          dark: '#F8C4B4'      // Darker peach/coral
         },
         fashion: {
           black: '#000000',

@@ -33,18 +33,18 @@ const HowItWorks = () => {
         </div>
 
         <div className="relative">
-          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-lemon-light -z-0"></div>
+          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-peach-light -z-0"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {steps.map((step, index) => (
               <div key={index} className="relative flex flex-col items-center text-center">
                 <div className="relative z-10 mb-6">
-                  <div className="bg-lemon h-14 w-14 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="bg-peach h-14 w-14 rounded-full flex items-center justify-center shadow-lg">
                     {step.icon}
                   </div>
                   <div className="hidden md:block absolute top-1/2 -right-36 transform -translate-y-1/2">
                     {index < steps.length - 1 && (
-                      <ArrowRight className="h-6 w-6 text-lemon-dark" />
+                      <ArrowRight className="h-6 w-6 text-peach-dark" />
                     )}
                   </div>
                 </div>
@@ -55,7 +55,7 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        <div className="mt-16 max-w-xl mx-auto bg-lemon/20 p-8 rounded-2xl border border-lemon">
+        <div className="mt-16 max-w-xl mx-auto bg-peach/20 p-8 rounded-2xl border border-peach">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="bg-white rounded-full p-4">
               <svg className="h-12 w-12" width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

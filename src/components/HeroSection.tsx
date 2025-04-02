@@ -29,7 +29,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-20">
         <div className="max-w-3xl mx-auto text-center">
           <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block bg-lemon py-2 px-4 rounded-full mb-6">
+            <div className="inline-block bg-peach py-2 px-4 rounded-full mb-6">
               <p className="font-medium text-fashion-black text-sm">Coming Soon</p>
             </div>
             
@@ -37,7 +37,7 @@ const HeroSection = () => {
               Discover Fashion Through
               <span className="block relative">
                 <span className="relative z-10">Short Videos</span>
-                <span className="absolute bottom-2 left-0 w-full h-3 bg-lemon/70 -z-0"></span>
+                <span className="absolute bottom-2 left-0 w-full h-3 bg-peach/70 -z-0"></span>
               </span>
             </h1>
             
@@ -80,7 +80,7 @@ const HeroSection = () => {
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce-subtle">
         <div className="w-8 h-12 rounded-full border-2 border-fashion-white flex items-start justify-center py-2">
-          <div className="w-1 h-3 bg-lemon rounded-full animate-pulse-slow"></div>
+          <div className="w-1 h-3 bg-peach rounded-full animate-pulse-slow"></div>
         </div>
       </div>
     </section>

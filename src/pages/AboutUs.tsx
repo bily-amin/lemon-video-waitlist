@@ -1,16 +1,10 @@
-
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const AboutUs = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <a href="/" className="text-2xl font-bold text-fashion-white">
-            Fashion<span className="text-red">Video</span>
-          </a>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-1 pt-20 bg-fashion-white">
         <div className="container mx-auto px-4 py-12">

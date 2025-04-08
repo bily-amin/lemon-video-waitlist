@@ -96,11 +96,18 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Right content - phone mockup */}
+      {/* Right content - iPhone mockup */}
       <div className="w-full md:w-1/2 flex justify-center items-center relative z-10">
-        <div className="relative w-full max-w-sm">
-          {/* Phone mockup */}
-          <div className="relative rounded-[40px] border-[10px] border-fashion-white/20 shadow-xl overflow-hidden w-full h-[580px] bg-fashion-black">
+        <div className="relative w-full max-w-[280px]">
+          {/* iPhone mockup */}
+          <div className="relative rounded-[40px] border-[14px] border-fashion-white/20 shadow-xl overflow-hidden w-full h-[580px] bg-fashion-black">
+            {/* iPhone notch */}
+            <div className="absolute top-0 left-0 right-0 h-7 bg-fashion-black z-10 flex justify-center items-start">
+              <div className="w-36 h-7 bg-fashion-black rounded-b-2xl flex items-center justify-center">
+                <div className="w-16 h-4 bg-fashion-black rounded-lg absolute -top-0"></div>
+              </div>
+            </div>
+            
             {/* Main video */}
             <video
               autoPlay
@@ -114,7 +121,7 @@ const HeroSection = () => {
             </video>
             
             {/* UI overlay elements */}
-            <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center">
+            <div className="absolute top-7 left-0 right-0 p-4 flex justify-between items-center">
               <div className="text-fashion-white text-sm">FashionVideo</div>
               <div className="bg-red rounded-full w-8 h-8 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -132,6 +139,9 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
+            
+            {/* iPhone home indicator */}
+            <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-fashion-white/30 rounded-full"></div>
           </div>
 
           {/* Background decoration */}

@@ -154,12 +154,15 @@ const HeroSection = () => {
             {/* Enhanced screen reflection overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/8 to-transparent opacity-40 pointer-events-none"></div>
             
-            {/* Power button */}
-            <div className="absolute top-24 -right-[6px] w-[3px] h-16 bg-[#222] rounded-r-sm"></div>
+            {/* Power button - Made more visible */}
+            <div className="absolute top-24 -right-[7px] w-[4px] h-16 bg-[#333] rounded-r-sm shadow-[0_0_3px_rgba(0,0,0,0.5)] before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:rounded-r-sm"></div>
             
-            {/* Volume buttons */}
-            <div className="absolute top-20 -left-[6px] w-[3px] h-10 bg-[#222] rounded-l-sm"></div>
-            <div className="absolute top-36 -left-[6px] w-[3px] h-10 bg-[#222] rounded-l-sm"></div>
+            {/* Volume buttons - Made more visible */}
+            <div className="absolute top-20 -left-[7px] w-[4px] h-10 bg-[#333] rounded-l-sm shadow-[0_0_3px_rgba(0,0,0,0.5)] before:absolute before:inset-0 before:bg-gradient-to-t before:from-white/10 before:to-transparent before:rounded-l-sm"></div>
+            <div className="absolute top-36 -left-[7px] w-[4px] h-10 bg-[#333] rounded-l-sm shadow-[0_0_3px_rgba(0,0,0,0.5)] before:absolute before:inset-0 before:bg-gradient-to-t before:from-white/10 before:to-transparent before:rounded-l-sm"></div>
+            
+            {/* Silent mode switch - Added for more realism */}
+            <div className="absolute top-12 -left-[6px] w-[3px] h-6 bg-[#333] rounded-l-sm shadow-[0_0_2px_rgba(0,0,0,0.5)]"></div>
           </div>
 
           {/* Enhanced 3D effect shadows and reflections */}

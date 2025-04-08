@@ -99,12 +99,20 @@ const HeroSection = () => {
       {/* Right content - iPhone mockup */}
       <div className="w-full md:w-1/2 flex justify-center items-center relative z-10">
         <div className="relative w-full max-w-[280px]">
-          {/* iPhone mockup */}
-          <div className="relative rounded-[40px] border-[14px] border-fashion-white/20 shadow-xl overflow-hidden w-full h-[580px] bg-fashion-black">
+          {/* 3D iPhone mockup with realistic effects */}
+          <div className="relative rounded-[40px] border-[8px] border-[#333333] shadow-xl overflow-hidden w-full h-[580px] bg-fashion-black transform perspective-1000 rotate-y-1 hover:rotate-y-3 transition-transform duration-500">
+            {/* Side edge highlights for 3D effect */}
+            <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-white/5 via-white/20 to-white/5"></div>
+            <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-white/5 via-white/20 to-white/5"></div>
+            
+            {/* Top and bottom edge highlights */}
+            <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-white/5 via-white/20 to-white/5"></div>
+            <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-white/5 via-white/20 to-white/5"></div>
+            
             {/* iPhone notch */}
             <div className="absolute top-0 left-0 right-0 h-7 bg-fashion-black z-10 flex justify-center items-start">
-              <div className="w-36 h-7 bg-fashion-black rounded-b-2xl flex items-center justify-center">
-                <div className="w-16 h-4 bg-fashion-black rounded-lg absolute -top-0"></div>
+              <div className="w-36 h-7 bg-[#1A1F2C] rounded-b-2xl flex items-center justify-center shadow-inner">
+                <div className="w-16 h-4 bg-[#222] rounded-lg absolute -top-0"></div>
               </div>
             </div>
             
@@ -142,10 +150,14 @@ const HeroSection = () => {
             
             {/* iPhone home indicator */}
             <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-fashion-white/30 rounded-full"></div>
+            
+            {/* Subtle screen reflection overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-30 pointer-events-none"></div>
           </div>
 
-          {/* Background decoration */}
-          <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] rounded-full bg-gradient-to-br from-red/40 to-red/5 blur-3xl"></div>
+          {/* 3D effect shadows and reflections */}
+          <div className="absolute -z-10 -bottom-8 left-1/2 transform -translate-x-1/2 w-[80%] h-[20px] bg-black/50 blur-xl rounded-full"></div>
+          <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] rounded-full bg-gradient-to-br from-red/30 to-red/5 blur-3xl"></div>
         </div>
       </div>
 

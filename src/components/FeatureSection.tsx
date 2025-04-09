@@ -7,51 +7,44 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from '@/components/ui/carousel';
-import { Slider } from '@/components/ui/slider';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { useState } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const FeatureSection = () => {
-  const [videoProgress, setVideoProgress] = useState<Record<number, number>>({});
+  const isMobile = useIsMobile();
 
   const features = [
     {
       icon: <VideoIcon className="h-8 w-8" />,
       title: "Short Video Discovery",
       description: "Find fashion you love through engaging short-form videos that showcase styles in real-world settings.",
-      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+      image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=2027&auto=format&fit=crop"
     },
     {
       icon: <TrendingUpIcon className="h-8 w-8" />,
       title: "Trending Styles",
       description: "Stay ahead of fashion trends with our AI-powered algorithm that shows you what's popular right now.",
-      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      image: "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?q=80&w=1924&auto=format&fit=crop"
     },
     {
       icon: <ShoppingBagIcon className="h-8 w-8" />,
       title: "Seamless Shopping",
       description: "See something you like? Buy it instantly with just one tap directly from the video.",
-      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+      image: "https://images.unsplash.com/photo-1571380401583-72ca84994796?q=80&w=1964&auto=format&fit=crop"
     },
     {
       icon: <MousePointer className="h-8 w-8" />,
       title: "Personalized Recommendations",
       description: "Get fashion suggestions tailored to your style preferences and shopping history.",
-      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1170&auto=format&fit=crop"
     },
     {
       icon: <Sparkles className="h-8 w-8" />,
       title: "Creator Collaborations",
       description: "Discover exclusive collections from your favorite fashion creators and influencers.",
-      video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop"
     }
   ];
-
-  const handleTimeUpdate = (index: number, event: React.SyntheticEvent<HTMLVideoElement>) => {
-    const video = event.currentTarget;
-    const progress = (video.currentTime / video.duration) * 100;
-    setVideoProgress(prev => ({ ...prev, [index]: progress }));
-  };
 
   return (
     <section className="py-16 bg-fashion-black text-fashion-white">
@@ -78,27 +71,38 @@ const FeatureSection = () => {
               {features.map((feature, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
                   <div className="bg-fashion-black border border-fashion-white/20 rounded-xl p-6 md:p-8 h-full hover:shadow-[0_0_15px_rgba(234,56,76,0.3)] transition-all hover:-translate-y-1">
-                    <div className="relative mb-6 rounded-lg overflow-hidden bg-black/20">
-                      <AspectRatio ratio={16/9} className="bg-black">
-                        <video 
-                          className="w-full h-full object-contain"
-                          src={feature.video}
-                          loop
-                          muted
-                          playsInline
-                          onMouseEnter={(e) => e.currentTarget.play()}
-                          onMouseLeave={(e) => e.currentTarget.pause()}
-                          onTimeUpdate={(e) => handleTimeUpdate(index, e)}
-                        />
+                    <div className="relative mb-6 rounded-lg overflow-hidden">
+                      <AspectRatio ratio={9/16} className="bg-black/20">
+                        {/* Mobile Phone Mockup */}
+                        <div className="w-full h-full relative">
+                          {/* Phone frame */}
+                          <div className="absolute inset-0 mx-auto w-[85%] h-full rounded-[36px] border-[6px] border-gray-800 overflow-hidden shadow-lg transform perspective-1200 rotate-y-3 hover:rotate-y-6 transition-transform duration-500">
+                            {/* Screen content (the image) */}
+                            <div className="absolute inset-0 bg-black">
+                              <img 
+                                src={feature.image} 
+                                alt={feature.title} 
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            
+                            {/* Screen overlay to add realism */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent pointer-events-none"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 pointer-events-none"></div>
+                            
+                            {/* Phone notch */}
+                            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[40%] h-6 bg-gray-800 rounded-b-xl"></div>
+                            
+                            {/* Side buttons */}
+                            <div className="absolute top-24 -right-[6px] w-[3px] h-12 bg-gray-700 rounded-r-sm"></div>
+                            <div className="absolute top-20 -left-[6px] w-[3px] h-8 bg-gray-700 rounded-l-sm"></div>
+                            <div className="absolute top-32 -left-[6px] w-[3px] h-8 bg-gray-700 rounded-l-sm"></div>
+                          </div>
+                          
+                          {/* Phone reflection/glow effect */}
+                          <div className="absolute inset-0 mx-auto w-[85%] bg-gradient-to-tr from-red/20 via-blue-400/10 to-purple-500/10 rounded-[40px] blur-xl opacity-50 -z-10"></div>
+                        </div>
                       </AspectRatio>
-                      <div className="absolute bottom-3 left-3 right-3">
-                        <Slider 
-                          value={[videoProgress[index] || 0]} 
-                          max={100}
-                          className="h-1"
-                          disabled
-                        />
-                      </div>
                     </div>
                     <div className="bg-red p-3 rounded-lg inline-block mb-4 text-fashion-white">
                       {feature.icon}

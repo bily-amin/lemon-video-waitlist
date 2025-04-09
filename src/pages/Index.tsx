@@ -6,6 +6,9 @@ import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
 import WaitlistForm from "@/components/WaitlistForm";
 import { Separator } from "@/components/ui/separator";
+import TestimonialSection from "@/components/TestimonialSection";
+import FaqSection from "@/components/FaqSection";
+import CreatorHighlights from "@/components/CreatorHighlights";
 
 const Index = () => {
   return (
@@ -25,6 +28,9 @@ const Index = () => {
         
         <FeatureSection />
         <HowItWorks />
+        <TestimonialSection />
+        <CreatorHighlights />
+        <FaqSection />
         <WaitlistForm />
       </main>
 

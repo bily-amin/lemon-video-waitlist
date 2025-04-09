@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import FeatureSection from "@/components/FeatureSection";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
+import WaitlistForm from "@/components/WaitlistForm";
 import { Separator } from "@/components/ui/separator";
 
 const Index = () => {
@@ -24,6 +25,7 @@ const Index = () => {
         
         <FeatureSection />
         <HowItWorks />
+        <WaitlistForm />
       </main>
 
       <Footer />

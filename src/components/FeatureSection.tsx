@@ -9,9 +9,12 @@ import {
 } from '@/components/ui/carousel';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useEffect, useState } from 'react';
 
 const FeatureSection = () => {
   const isMobile = useIsMobile();
+  const [api, setApi] = useState<any>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const features = [
     {
@@ -46,6 +49,28 @@ const FeatureSection = () => {
     }
   ];
 
+  useEffect(() => {
+    if (!api) return;
+    
+    // Set up auto-sliding with interval
+    const autoPlayInterval = setInterval(() => {
+      api.scrollNext();
+    }, 3000); // Change slide every 3 seconds
+    
+    // Update current slide index when the carousel changes
+    const onSelect = () => {
+      setCurrentIndex(api.selectedScrollSnap());
+    };
+    
+    api.on("select", onSelect);
+    
+    // Clean up
+    return () => {
+      clearInterval(autoPlayInterval);
+      api?.off("select", onSelect);
+    };
+  }, [api]);
+
   return (
     <section className="py-16 bg-fashion-black text-fashion-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -65,6 +90,7 @@ const FeatureSection = () => {
               align: "start",
               loop: true,
             }}
+            setApi={setApi}
             className="w-full"
           >
             <CarouselContent>
@@ -118,9 +144,16 @@ const FeatureSection = () => {
           </Carousel>
 
           <div className="mt-10 flex justify-center gap-2">
-            <span className="block w-2 h-2 rounded-full bg-red animate-pulse"></span>
-            <span className="block w-2 h-2 rounded-full bg-red/70 animate-pulse" style={{ animationDelay: "0.2s" }}></span>
-            <span className="block w-2 h-2 rounded-full bg-red/50 animate-pulse" style={{ animationDelay: "0.4s" }}></span>
+            {features.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  currentIndex === index ? "bg-red scale-125" : "bg-red/50"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

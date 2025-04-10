@@ -55,7 +55,9 @@ const TestimonialSection = () => {
           <Carousel
             setApi={setApi}
             className="w-full"
-            onSelect={(index) => setCurrentIndex(index)}
+            onSelect={(index) => {
+              setCurrentIndex(index);
+            }}
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (

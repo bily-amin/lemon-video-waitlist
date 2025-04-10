@@ -169,7 +169,7 @@ const FaqSection = () => {
               <Accordion type="single" collapsible className="w-full">
                 {filteredFaqs.map((faq, index) => (
                   <AccordionItem 
-                    key={index} 
+                    key={`search-item-${index}`} 
                     value={`search-item-${index}`}
                     className="border-b border-fashion-white/10 animate-in"
                   >
@@ -222,12 +222,13 @@ const FaqSection = () => {
               type="single" 
               collapsible 
               className="w-full space-y-4"
+              defaultValue="item-0"
             >
               {allFaqs[activeCategory as keyof typeof allFaqs].map((faq, index) => (
                 <AccordionItem 
-                  key={index} 
+                  key={`item-${index}`} 
                   value={`item-${index}`}
-                  className="border border-fashion-white/10 rounded-lg bg-fashion-white/5 backdrop-blur-sm overflow-hidden animate-in stagger-1"
+                  className="border border-fashion-white/10 rounded-lg bg-fashion-white/5 backdrop-blur-sm overflow-hidden animate-in"
                 >
                   <AccordionTrigger className="text-fashion-white hover:text-red transition-colors px-6 py-4">
                     <div className="flex items-center gap-2 text-left">
@@ -302,4 +303,3 @@ const FaqSection = () => {
 };
 
 export default FaqSection;
-

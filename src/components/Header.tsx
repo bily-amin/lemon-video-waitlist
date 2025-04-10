@@ -11,9 +11,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Button } from './ui/button';
+import { Menu, X } from 'lucide-react'; 
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +29,14 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header 
@@ -47,24 +57,109 @@ const Header = () => {
           </span>
         </Link>
 
+        {/* Mobile menu button */}
+        <button 
+          className="md:hidden text-fashion-white"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {mobileMenuOpen ? (
+            <X size={24} className="text-red" />
+          ) : (
+            <Menu size={24} />
+          )}
+        </button>
+
+        {/* Mobile menu */}
+        <div className={`
+          md:hidden fixed inset-0 bg-fashion-black/95 backdrop-blur-sm z-40 transition-all duration-300 transform
+          ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
+          pt-20 px-6
+        `}>
+          <nav className="flex flex-col space-y-6">
+            <a 
+              href="#features" 
+              className="text-fashion-white hover:text-red text-xl font-medium transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('features');
+              }}
+            >
+              Features
+            </a>
+            <a 
+              href="#how-it-works" 
+              className="text-fashion-white hover:text-red text-xl font-medium transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('how-it-works');
+              }}
+            >
+              How It Works
+            </a>
+            <a 
+              href="#faq" 
+              className="text-fashion-white hover:text-red text-xl font-medium transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('faq');
+              }}
+            >
+              FAQ
+            </a>
+            <div className="pt-4">
+              <a 
+                href="#waitlist" 
+                className="block w-full bg-red hover:bg-red/90 text-white text-center py-3 rounded-md font-medium"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('waitlist');
+                }}
+              >
+                Join Waitlist
+              </a>
+            </div>
+          </nav>
+        </div>
+
         <div className="hidden md:flex items-center space-x-8">
           <NavigationMenu>
             <NavigationMenuList className="space-x-2">
               <NavigationMenuItem>
-                <NavigationMenuLink 
+                <a 
                   href="#how-it-works"
                   className="text-fashion-white hover:text-red transition-colors px-3 py-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('how-it-works');
+                  }}
                 >
                   How It Works
-                </NavigationMenuLink>
+                </a>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink 
+                <a 
                   href="#features"
                   className="text-fashion-white hover:text-red transition-colors px-3 py-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('features');
+                  }}
                 >
                   Features
-                </NavigationMenuLink>
+                </a>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <a 
+                  href="#faq"
+                  className="text-fashion-white hover:text-red transition-colors px-3 py-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('faq');
+                  }}
+                >
+                  FAQ
+                </a>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-transparent text-fashion-white hover:bg-fashion-black/50 hover:text-red">
@@ -102,9 +197,17 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
           
-          <Button className="bg-red hover:bg-red/90 text-white">
-            Join Waitlist
-          </Button>
+          <a 
+            href="#waitlist" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('waitlist');
+            }}
+          >
+            <Button className="bg-red hover:bg-red/90 text-white">
+              Join Waitlist
+            </Button>
+          </a>
         </div>
       </div>
     </header>

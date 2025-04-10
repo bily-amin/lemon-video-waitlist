@@ -55,8 +55,10 @@ const TestimonialSection = () => {
           <Carousel
             setApi={setApi}
             className="w-full"
-            onSelect={(index) => {
-              setCurrentIndex(index);
+            onSelect={(selectedIndex) => {
+              if (typeof selectedIndex === 'number') {
+                setCurrentIndex(selectedIndex);
+              }
             }}
           >
             <CarouselContent>
